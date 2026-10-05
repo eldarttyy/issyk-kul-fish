@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fish of Issyk-Kul</title>
+<meta name="description" content="RELI 230 · Climate/Conservation Solution: the native fish of Lake Issyk-Kul, the predators brought in to replace them, and the people trying to bring them back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-intro">
+
+<header class="topbar">
+  <a href="#home" class="wordmark">THE FISH OF ISSYK-KUL<span>/ a conservation story</span></a>
+  <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="menu" aria-hidden="true">
+  <ol>
+    <li><a href="#night">Night Fishing</a></li>
+    <li><a href="#fish">The Fish</a></li>
+    <li><a href="#timeline">What the Lake Lost</a></li>
+    <li><a href="#climate">The Third Pressure</a></li>
+    <li><a href="#solutions">The Solutions</a></li>
+    <li><a href="#trout">Thanks for the Trout</a></li>
+    <li><a href="#map">Concept Map</a></li>
+    <li><a href="#readings">Connections to the Readings</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</nav>
+
+<!-- ───────────── Hero: the lake at night ───────────── -->
+<section id="home" class="hero">
+  <svg class="land" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#05080d"/><stop offset=".7" stop-color="#0d1824"/><stop offset="1" stop-color="#162636"/>
+      </linearGradient>
+      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#132433"/><stop offset="1" stop-color="#03070b"/>
+      </linearGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#sky)"/>
+    <g class="stars" fill="#eef2f5"></g>
+    <circle cx="1270" cy="150" r="34" fill="#e9e4d2" opacity=".85"/>
+    <path fill="#1a2733" d="M0 560 L120 430 L200 500 L330 360 L420 450 L520 380 L640 500 L760 410 L880 480 L1000 350 L1110 450 L1220 390 L1330 470 L1450 380 L1600 500 V620 H0Z"/>
+    <path fill="#dfe6ec" opacity=".55" d="M330 360 L300 393 L318 388 L332 400 L346 386 L362 395 Z M1000 350 L968 386 L986 380 L1002 392 L1018 378 L1034 388 Z M1450 380 L1420 412 L1440 406 L1454 416 L1470 404 L1486 412 Z"/>
+    <path fill="#101b25" d="M0 600 C220 580 420 596 640 588 C860 580 1080 598 1300 586 C1420 580 1520 590 1600 586 V630 H0Z"/>
+    <rect y="610" width="1600" height="290" fill="url(#water)"/>
+    <path class="moonpath" fill="#e9e4d2" opacity=".14" d="M1250 615 h40 l30 285 h-100z"/>
+  </svg>
+  <canvas id="eyes" aria-hidden="true"></canvas>
+
+  <div class="intro-lines" aria-live="polite">
+    <p class="intro-line">My father used to fish in the middle of the night.</p>
+    <p class="intro-line">No rods. Just a spear and a light.</p>
+    <p class="intro-line">In the dark, the eyes of the fish lit up.</p>
+  </div>
+  <button class="skip-intro">Skip intro <span class="ring-arrow">›</span></button>
+
+  <div class="hero-title">
+    <p class="kicker">RELI 230 · Climate / Conservation Solution</p>
+    <h1>The Fish of Issyk-Kul</h1>
+    <p class="sub">I am Yrysray, one of the people who live by the lake. This is the story of what our lake lost, and of who is trying to bring it back.</p>
+  </div>
+  <a href="#night" class="scroll-cue" aria-label="Scroll down">Scroll</a>
+</section>
+
+<main>
+
+<!-- ───────────── 1. Night fishing ───────────── -->
+<section id="night" class="section">
+  <div class="section-head reveal">
+    <span class="kicker">01</span>
+    <h2>Night Fishing</h2>
+    <p class="lede">I was about seven years old.</p>
+  </div>
+  <div class="two">
+    <div>
+      <p class="reveal">My father used to go fishing in the middle of the night, and as a kid I did not understand why. You can't see anything, and it is dangerous. I thought he only went at night because he was busy with work during the day. Then he told me something that surprised me: night fishing has a different purpose, and you can actually catch more fish. I did not believe him until he showed me.</p>
+      <p class="reveal">We didn't take any fishing rods, just a spear and a light. My father said that was the whole point. I was sure he wouldn't catch even one fish with that spear. It was summer, so the water was warm enough to stay in for a while. We walked through the shallow water with the light, hunting.</p>
+      <p class="reveal">The fish's eyes lit up in the dark, and so did the eyes of the frogs and bats. That scared me a lot, because they all seemed to be looking straight at me. My father told me to be quiet because the fish could hear my voice and my questions. I know now that isn't really true. He just wanted me to stop talking and focus on the fish.</p>
+    </div>
+    <div class="torch reveal" aria-label="Interactive: move your finger or mouse over the dark water to search for fish with the light">
+      <canvas id="torch"></canvas>
+      <p class="torch-hint">Move the light over the water</p>
+      <p class="torch-count" aria-live="polite"></p>
+    </div>
+  </div>
+  <p class="reveal narrow">When we found a few fish, we moved closer, as close as the reach of the spear. We flashed the light to see exactly where they were, and turned it off right before the strike. It worked. I could see how big the fish were and how they moved in the water, and I felt happy, almost ecstatic, that you could fish like that. My father learned this from my grandfather when he was twelve or fifteen.</p>
+  <blockquote class="pull reveal">Today you cannot fish with a spear anymore. The chebak are gone from the shore. This page is about why.</blockquote>
+</section>
+
+<!-- ───────────── 2. The fish ───────────── -->
+<section id="fish" class="section fish">
+  <div class="section-head reveal">
+    <span class="kicker">02</span>
+    <h2>The Fish</h2>
+    <p class="lede">The ones that were here first, and the ones that were brought in. Tap a fish.</p>
+  </div>
+  <div class="fish-grid">
+    <div class="fish-col reveal">
+      <h3 class="col-title native">Native to Issyk-Kul · found nowhere else</h3>
+      <button class="fish-card" data-f="chebak"><span class="fname">Chebak</span><span class="fsub">Issyk-Kul dace</span><span class="ftag red">Red Book</span></button>
+      <button class="fish-card" data-f="marinka"><span class="fname">Marinka</span><span class="fsub">up to 70 cm, 8 kg</span><span class="ftag red">Red Book</span></button>
+      <button class="fish-card" data-f="osman"><span class="fname">Naked osman</span><span class="fsub">a fish with no scales</span><span class="ftag red">Red Book</span></button>
+    </div>
+    <div class="fish-col reveal">
+      <h3 class="col-title alien">Brought in · predators</h3>
+      <button class="fish-card" data-f="sevan"><span class="fname">Sevan trout</span><span class="fsub">from Armenia, 1930</span><span class="ftag">Predator</span></button>
+      <button class="fish-card" data-f="sudak"><span class="fname">Pikeperch · sudak</span><span class="fsub">1954–1956</span><span class="ftag">Predator</span></button>
+      <button class="fish-card" data-f="rainbow"><span class="fname">Rainbow trout</span><span class="fsub">escaped from cage farms</span><span class="ftag">Predator</span></button>
+    </div>
+    <div class="fish-detail reveal" aria-live="polite">
+      <span class="kicker"></span>
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 3. Timeline ───────────── -->
+<section id="timeline" class="section">
+  <div class="section-head reveal">
+    <span class="kicker">03</span>
+    <h2>What the Lake Lost</h2>
+    <p class="lede">A plan to make the lake “better.”</p>
+  </div>
+  <ol class="timeline">
+    <li class="reveal"><span class="yr">1930</span><div><h3>Sevan trout released</h3><p>Soviet scientists release 755,000 trout eggs from Armenia into Issyk-Kul, and 800,000 more in 1936. They saw the native fish as small, bony and not worth much money. Here the trout grew up to 17 kg, compared with about 4 kg at home, and laid five to six times more eggs.</p></div></li>
+    <li class="reveal"><span class="yr">1954–56</span><div><h3>Pikeperch and bream added</h3><p>A second predator arrives. Too many predators and too few prey fish: the lake's total fish production actually <em>drops</em> (Alamanov &amp; Mikkola, 2011). Only about 3% of Soviet fish introductions before 1978 ever paid off (Bogdanowicz et al., 2017). The trout was one of the rare “successes.” Back in Armenia, dams and poaching wrecked its spawning grounds, and it is now endangered in its own homeland.</p></div></li>
+    <li class="reveal"><span class="yr">1980s</span><div><h3>Rainbow trout escape</h3><p>Trout start escaping from cage farms in the lake and spread everywhere. Fishermen and environmentalists blame them for more damage to the native fish (Blua, 2010).</p></div></li>
+    <li class="reveal dark"><span class="yr">1991</span><div><h3>The collapse</h3><p>The USSR falls. My father saw the biggest change here: the fishing industry became a business, everyone was fishing, and nobody enforced the rules. The research says the same: overfishing, mass poaching, hatcheries with no money.</p></div></li>
+    <li class="reveal"><span class="yr">2008</span><div><h3>Native fish hatcheries</h3><p>A UNDP project starts raising marinka and osman in mobile hatcheries to release into the lake.</p></div></li>
+    <li class="reveal light"><span class="yr">2023</span><div><h3>Fishing ban</h3><p>Kyrgyzstan bans commercial fishing in Issyk-Kul and Son-Kul for three years.</p></div></li>
+    <li class="reveal light"><span class="yr">2026</span><div><h3>Ban extended to 2029</h3><p>The fish still have not come back, so the ban is extended (24.kg).</p></div></li>
+  </ol>
+  <p class="reveal narrow note-big">My father says the chebak moved deep into the lake to escape the predators. That is why spear fishing by the shore no longer works (personal communication, October 2026). My family's memory and the research tell the same story: the predators weakened the lake for decades, and the 1990s pushed it over the edge.</p>
+</section>
+
+<!-- ───────────── 4. Climate ───────────── -->
+<section id="climate" class="section climate">
+  <div class="section-head reveal">
+    <span class="kicker">04</span>
+    <h2>The Third Pressure</h2>
+    <p class="lede">Predators, then overfishing. Now, climate change.</p>
+  </div>
+  <div class="stats">
+    <div class="stat reveal"><b data-count="16">0</b><span>%</span><p>of Kyrgyzstan's glacier area lost in the last 50 years</p></div>
+    <div class="stat reveal"><b data-count="50">0</b><span>%</span><p>more could disappear by 2050, and the glaciers may be gone by 2100</p></div>
+    <div class="stat reveal"><b data-count="1.3" data-dec="1">0</b><span>°C</span><p>of warming in Kyrgyzstan in just two decades, faster than the global average</p></div>
+    <div class="stat reveal"><b data-count="0.03" data-dec="2">0</b><span>%</span><p>of the world's greenhouse gas emissions come from Kyrgyzstan</p></div>
+  </div>
+  <p class="note reveal">Najibullah &amp; RFE/RL's Kyrgyz Service, 2023. Winter has also shrunk from 95 to 71 days, and summer has grown from 145 to 154.</p>
+  <div class="two">
+    <div>
+      <p class="reveal">Issyk-Kul has no river flowing out of it, so the only way water leaves is by evaporating, which makes the lake very sensitive to warming. It is fed by rivers that come down from the glaciers of the Tien Shan. Over the last 80 years, the temperature around the lake rose by 0.7 to 1.5°C and rainfall dropped by 45 to 130 mm, and these changes moved the lake's water level (Salamat et al., 2015). Farmers diverting rivers for irrigation have lowered it even more.</p>
+      <p class="reveal">This feels unfair to me. Kyrgyzstan produces only about 0.03% of the world's greenhouse gas emissions. We barely caused the problem, but we are living with it.</p>
+      <p class="reveal">The marinka spawns in shallow, rocky water near the shore (FAO, 2013). The shallow water is also where my father and I found fish at night. When the lake gets warmer and its level drops, these shallow edges change first. I wonder if climate change is hitting the same places that the native fish need most.</p>
+    </div>
+    <div class="shore reveal" aria-label="Interactive: drag the slider to lower the lake level and watch the shallow shore dry out">
+      <svg viewBox="0 0 400 300" aria-hidden="true">
+        <defs><linearGradient id="lk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d5a78"/><stop offset="1" stop-color="#0a1620"/></linearGradient></defs>
+        <rect width="400" height="300" fill="#0d141b"/>
+        <path d="M0 80 L130 80 L200 150 L400 220 V300 H0Z" fill="#3a3322"/>
+        <g class="rocks" fill="#5a503c"><circle cx="150" cy="100" r="6"/><circle cx="168" cy="118" r="5"/><circle cx="185" cy="134" r="7"/></g>
+        <rect class="lake-water" x="0" y="0" width="400" height="300" fill="url(#lk)" opacity=".9"/>
+        <g class="spawn" fill="#f0bd55"><circle cx="152" cy="108" r="2.5"/><circle cx="160" cy="114" r="2"/><circle cx="172" cy="126" r="2.5"/><circle cx="182" cy="140" r="2"/><circle cx="190" cy="146" r="2.5"/></g>
+      </svg>
+      <label class="slider"><span>Lake level</span><input type="range" min="0" max="100" value="0" id="level"><span class="lvl-out">today</span></label>
+      <p class="note">An illustration, not a measurement. Gold dots: eggs in the shallow, rocky spawning zone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 5. Solutions ───────────── -->
+<section id="solutions" class="section solutions">
+  <div class="section-head reveal">
+    <span class="kicker">05</span>
+    <h2>The Solutions</h2>
+    <p class="lede">From a whole country down to one family.</p>
+  </div>
+  <div class="sol-grid">
+    <article class="reveal"><span class="kicker">Country</span><h3>A fishing ban</h3><p>In 2023 Kyrgyzstan banned commercial fishing in Issyk-Kul and Son-Kul. In July 2026 the ban was extended to 2029, because the fish stocks still had not recovered (24.kg, 2026).</p></article>
+    <article class="reveal"><span class="kicker">Village</span><h3>Raising native fish</h3><p>In Lipenka, local people raise marinka and osman in tanks heated by solar power and release them into the lake. The state environment agency banned breeding non-native fish in the nurseries until they switch to native species (Blua, 2010).</p></article>
+    <article class="reveal"><span class="kicker">Researchers</span><h3>Sharing the lake</h3><p>Alamanov and Mikkola (2011) recommend legal reform, protecting chosen native species, controlling the introduced fish, and co-management, where local fishing communities share responsibility for the lake with the state.</p></article>
+    <article class="reveal"><span class="kicker">Country</span><h3>Cleaning the water</h3><p>The lake's sewage systems are 20 to 30 years old, and treatment plants handle waste from only a third of the three main lakeside cities. The Asian Development Bank and the government started a $37.5 million cleanup (Blua, 2010).</p></article>
+    <article class="reveal"><span class="kicker">My grandfather</span><h3>Never during spawning</h3><p>The most important rule in my family is the season. A fish full of eggs could become hundreds or thousands of new fish. I feel bad if I catch one by accident. The fishing ban follows the same logic, just for a whole country.</p></article>
+    <article class="reveal"><span class="kicker">My family</span><h3>Our own ponds</h3><p>We bought an apple garden in our village partly because it already had two fish ponds. We plan to raise our own trout. Every fish we raise at home is one less fish taken from the lake.</p></article>
+  </div>
+</section>
+
+<!-- ───────────── 6. Thanks for the trout ───────────── -->
+<section id="trout" class="section trout">
+  <div class="section-head reveal">
+    <span class="kicker">06</span>
+    <h2>Thanks for the Trout</h2>
+    <p class="lede">I have to be honest about something.</p>
+  </div>
+  <p class="reveal narrow big">Trout is my favorite fish. Its meat is red, it tastes great, and you can take all the bones out.</p>
+  <div class="scale reveal">
+    <div class="pan give"><h3>What the trout gives</h3><ul><li>Food for my family, and a really good source of protein</li><li>Big, high-quality fish that are now common in the lake</li><li>Exactly what the Soviet scientists wanted</li></ul></div>
+    <div class="beam" aria-hidden="true"><i></i></div>
+    <div class="pan take"><h3>What the trout takes</h3><ul><li>The chebak, now endangered</li><li>The marinka and osman I have never seen in the wild</li><li>Spear fishing by the shore, the way my grandfather taught my father</li></ul></div>
+  </div>
+  <div class="narrow">
+    <p class="reveal">The chebak is small, and it is hard to get the bones out before or while you eat it. When I think about whether my family would raise native marinka in our ponds, my honest answer is probably not, at least not now. Trout is more valuable, and people prefer it for food. (My cat loves both. She gets the small ones, so she is happy with any catch.)</p>
+    <p class="reveal">So when I ask what the Soviet scientists' goal was, the uncomfortable answer is that they partly got what they wanted. If I could leave them a message, I would say thank you for the trout.</p>
+    <p class="reveal">But it also makes me sad. I tell myself I am fine with it as long as the ecosystem stays balanced. The research says it is not balanced: the fishing ban was extended because the fish have not come back. My father calls the time when the lake was full of fish the best years of his life. Without the predators there were tons of fish, and the lake was cleaner. Part of that change is not about fish: about a million tourists visit every year, and old sewage systems let some waste flow straight into the lake (Blua, 2010).</p>
+  </div>
+  <blockquote class="pull reveal">I still don't understand why anyone would bring predators into an ecosystem that was so vulnerable to them. I don't have an answer, and I think that is the honest place to stand.</blockquote>
+</section>
+
+<!-- ───────────── 7. Concept map ───────────── -->
+<section id="map" class="section map">
+  <div class="section-head reveal">
+    <span class="kicker">07</span>
+    <h2>Concept Map</h2>
+    <p class="lede">Everything on this page, in one picture. Tap a circle.</p>
+  </div>
+  <div class="cmap reveal">
+    <svg class="cmap-lines" viewBox="0 0 1000 640" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="cmap-nodes"></div>
+  </div>
+  <div class="cmap-detail reveal" aria-live="polite"><span class="kicker"></span><h3></h3><ul></ul></div>
+</section>
+
+<!-- ───────────── 8. Readings ───────────── -->
+<section id="readings" class="section readings">
+  <div class="section-head reveal">
+    <span class="kicker">08</span>
+    <h2>Connections to the Readings</h2>
+    <p class="lede">Suzanne Crawford O'Brien, <em>Climate Anxiety and Spiritual Resilience</em></p>
+  </div>
+  <div class="read-grid">
+    <article class="reveal">
+      <span class="kicker">Chapter 2 · p. 24</span>
+      <h3>Three kinds of coping</h3>
+      <p class="book">Climate resilience comes in three forms: problem-focused coping (activism and lifestyle changes), emotion-focused coping (processing our feelings), and meaning-focused coping (exploring values and finding purpose).</p>
+      <p><b class="t-prob">Problem:</b> the fishing ban, the Lipenka hatcheries, my grandfather's rule, our ponds. <b class="t-emo">Emotion:</b> naming what I feel: sad for the chebak, grateful for the trout, frustrated that nobody stopped it. <b class="t-mean">Meaning:</b> a tradition passed from my grandfather to my father to me.</p>
+    </article>
+    <article class="reveal">
+      <span class="kicker">Chapter 4 · p. 72</span>
+      <h3>Feeding resilience</h3>
+      <p class="book">Food nourishes us, but it is also “an embodied remembering of the relationships that sustain us.”</p>
+      <p>We eat the fish, feed our cat and dog, share with neighbors and friends, and cook it on the barbecue at potlucks. That is what fishing is for my family.</p>
+    </article>
+    <article class="reveal">
+      <span class="kicker">Chapter 8 · p. 149</span>
+      <h3>Climate kinship</h3>
+      <p class="book">We are surrounded by relatives, not resources. Robin Wall Kimmerer warns of a “species loneliness” when we forget them.</p>
+      <p>I am Yrysray, the people who live by the lake. The chebak lived beside my people for generations. Losing it from the shore feels like losing a neighbor.</p>
+    </article>
+    <article class="reveal">
+      <span class="kicker">Chapter 12 · pp. 217–218</span>
+      <h3>Hope is a ceremony</h3>
+      <p class="book">Hope is not something you have. It is “a seed that we plant when we take a clear-eyed view of the situation.”</p>
+      <p>Nobody knows if the chebak will come back, but the people in Lipenka release young fish anyway. Someday I will take my own kids into nature, and pass on my grandfather's rules the way my father passed them to me.</p>
+    </article>
+  </div>
+  <blockquote class="pull hope reveal">I hope there will still be fish by the shore for them to see in the light.</blockquote>
+</section>
+
+<!-- ───────────── 9. Sources ───────────── -->
+<section id="sources" class="section sources">
+  <div class="section-head reveal">
+    <span class="kicker">09</span>
+    <h2>Sources</h2>
+    <p class="lede">APA, 7th edition.</p>
+  </div>
+  <ul class="refs reveal">
+    <li><span class="rtype">Peer-reviewed</span>Alamanov, A., &amp; Mikkola, H. (2011). Is biodiversity friendly fisheries management possible on Issyk-Kul Lake in the Kyrgyz Republic? <i>Ambio, 40</i>(5), 479–495. <a href="https://doi.org/10.1007/s13280-011-0140-x" target="_blank" rel="noopener">https://doi.org/10.1007/s13280-011-0140-x</a></li>
+    <li><span class="rtype">Peer-reviewed</span>Bogdanowicz, W., Rutkowski, R., Gabrielyan, B. K., Ryspaev, A., Asatryan, A. N., Mkrtchyan, J. A., &amp; Bujalska, B. M. (2017). Fish introductions in the former Soviet Union: The Sevan trout (<i>Salmo ischchan</i>) – 80 years later. <i>PLOS ONE, 12</i>(7), e0180605. <a href="https://doi.org/10.1371/journal.pone.0180605" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0180605</a></li>
+    <li><span class="rtype">Peer-reviewed</span>Salamat, A. U., Abuduwaili, J., &amp; Shaidyldaeva, N. (2015). Impact of climate change on water level fluctuation of Issyk-Kul Lake. <i>Arabian Journal of Geosciences, 8</i>(8), 5361–5371. <a href="https://doi.org/10.1007/s12517-014-1516-6" target="_blank" rel="noopener">https://doi.org/10.1007/s12517-014-1516-6</a></li>
+    <li><span class="rtype">News</span>Najibullah, F., &amp; RFE/RL's Kyrgyz Service. (2023, December 17). Shrinking glaciers and shallow rivers: Kyrgyzstan feeling the effects of climate change despite its tiny carbon footprint. <i>Radio Free Europe/Radio Liberty</i>. <a href="https://www.rferl.org/a/kyrgyzstan-climate-change-glaciers-rivers-/32734186.html" target="_blank" rel="noopener">rferl.org</a></li>
+    <li><span class="rtype">News</span>Blua, A. (2010, March 6). Kyrgyz alpine lake's beauty could be its undoing, some warn. <i>Radio Free Europe/Radio Liberty</i>. <a href="https://www.rferl.org/a/Kyrgyz_Alpine_Lakes_Beauty_Could_Be_Its_Undoing_Some_Warn/1976472.html" target="_blank" rel="noopener">rferl.org</a></li>
+    <li><span class="rtype">News</span>24.kg. (2026, July). Ban on fishing in Issyk-Kul and Son-Kul lakes imposed for three years. <a href="https://24.kg/english/280084_Ban_on_fishing_in_Issyk-Kul_and_Son-Kul_lakes_imposed_for_three_years/" target="_blank" rel="noopener">24.kg</a></li>
+    <li><span class="rtype">Report</span>Food and Agriculture Organization of the United Nations. (2013). <i>Fish species introductions in the Kyrgyz Republic</i> (FAO Fisheries and Aquaculture Technical Paper No. 584). <a href="https://www.fao.org/4/i3268e/i3268e.pdf" target="_blank" rel="noopener">fao.org</a></li>
+    <li><span class="rtype">Course text</span>Crawford O'Brien, S. (2026). <i>Climate anxiety and spiritual resilience: A guide to kinship, justice, and hope</i>. Bloomsbury Academic.</li>
+    <li><span class="rtype">Family</span>Conversations with my father, who has fished Issyk-Kul since childhood, and the rules passed down from my grandfather. In APA these are cited in the text as personal communication, not in the reference list.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>RELI 230 · Climate / Conservation Solution Project</p>
+  <p class="disclosure">The memories, opinions and family stories on this page are my own. An AI tool (Claude) asked me interview questions, helped me find sources, rewrote my answers into clearer sentences, summarized the readings and research, and built the web page. The lake at the top and the shore illustration are drawings made for this page.</p>
+  <a href="#home">Back to the lake ↑</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
