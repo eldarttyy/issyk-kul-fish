@@ -210,6 +210,8 @@ h3 { font: 400 clamp(22px, 2vw, 28px)/1.2 var(--serif); margin: 0 0 12px; }
 .read-grid .book { color: #cfc6ad; font-size: .95em; padding-left: 16px; border-left: 1px solid var(--gold); }
 .read-grid b { font-weight: 500; }
 .t-prob { color: var(--gold); } .t-emo { color: #8fc0ec; } .t-mean { color: #e8a08e; }
+.closing { margin-top: 64px; }
+.readings > .closing { max-width: 780px; }
 .pull.hope { border: 0; padding: 0; text-align: center; color: var(--gold); font-size: clamp(30px, 4vw, 54px); margin: 80px auto 0; }
 
 /* 9. sources */
